@@ -1,0 +1,19 @@
+{
+  "name": "project2",
+  "version": "1.0.0",
+  "description": "biling application",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/project2smell0rat/project2.git"
+  },
+  "author": "I smell a rat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/project2smell0rat/project2/issues"
+  },
+  "homepage": "https://github.com/project2smell0rat/project2#readme"
+}
