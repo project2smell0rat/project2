@@ -7,41 +7,28 @@
             <div class="card-body">
                 <h4 class="card-title">Job Name</h4>
 
-                <hr>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <p>Item 1</p>
-                    </div>
-                    <div class="col-lg-2">
-                        <p>1</p>
-                    </div>
-                    <div class="col-lg-2">
-                        <p>25.00</p>
-                    </div>
-                    <div class="col-lg-2">
-                        <button type="button" class="close" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                </div>
+                <div id="validation"></div>
 
-                <hr>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <p>Item 2</p>
-                    </div>
-                    <div class="col-lg-2">
-                        <p>2</p>
-                    </div>
-                    <div class="col-lg-2">
-                        <p>10.50</p>
-                    </div>
-                    <div class="col-lg-2">
-                        <button type="button" class="close" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Item</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Charge</th>
+                            <th scope="col">Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody id="item-table">
+                        <tr id="this-row">
+                            <td>Tree Removal</td>
+                            <td>2</td>
+                            <td>1000.00</td>
+                            <td>
+                                <button type="button" class="close float-none" id="delete-row">&times;</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -60,21 +47,74 @@
                     <input type="text" class="form-control" id="item-name">
                 </div>
                 <div class="form-group col-lg-2">
-                    <label for="charge">Quantity</label>
-                    <input type="text" class="form-control" id="charge">
-                </div>
-                <div class="form-group col-lg-2">
-                    <label for="quantity">Charge</label>
+                    <label for="quantity">Quantity</label>
                     <input type="text" class="form-control" id="quantity">
                 </div>
+                <div class="form-group col-lg-2">
+                    <label for="charge">Charge</label>
+                    <input type="text" class="form-control" id="charge">
+                </div>
             </div>
-            <div class="form-row">
+            <!-- <div class="form-row">
                 <div class="form-group col-lg-12">
                     <label for="item-description">Item Description</label>
                     <textarea class="form-control" id="item-description" rows="3"></textarea>
                 </div>
-            </div>
-            <button type="submit" class="btn btn-primary btn-block">Add</button>
+            </div> -->
+            <button type="button" class="btn btn-primary btn-block" id="add-item">Add</button>
         </form>
     </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    $(document).ready(() => {
+
+        // ADD ITEM ROW
+        $("#add-item").click(() => {
+            // get input
+            const itemName = $("#item-name").val().trim()
+            const itemQuantity = parseInt($("#quantity").val().trim())
+            const itemCharge = () => {
+                const input = parseFloat($("#charge").val().trim())
+                return input.toFixed(2)
+            }
+
+            // validate input
+            $("#validation").empty()
+            if (!itemName) {
+                $("#validation").append("<p>Please enter an item name.</p>")
+                return
+            }
+            if (isNaN(itemQuantity) || itemQuantity <= 0) {
+                $("#validation").append("<p>Quantity must be a positive integer.</p>")
+                return
+            }
+            if (isNaN(itemCharge())) {
+                $("#validation").append("<p>Charge must be a number. Value will be rounded to two decimal points.</p>")
+                return
+            }
+
+            // build and append table row
+            const nameTD = $("<td>").text(itemName)
+            const quantityTD = $("<td>").text(itemQuantity)
+            const chargeTD = $("<td>").text(itemCharge())
+            const removeBtn = $("<button>").attr({
+                "type": "button",
+                "class": "close float-none",
+                "id": "delete-row"
+            }).html("&times;")
+            const removeTD = $("<td>").append(removeBtn)
+            const itemTR = $("<tr>").attr("id", "this-row")
+            $("#item-table").append(itemTR.append(nameTD, quantityTD, chargeTD, removeTD))
+        })
+
+        // DELETE ITEM ROW
+        $("#delete-row").click( () => {
+            $("#this-row").remove()
+        })
+
+    })
+</script>
