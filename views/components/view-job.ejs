@@ -19,14 +19,14 @@
                         </tr>
                     </thead>
                     <tbody id="item-table">
-                        <tr id="this-row">
+                        <!-- <tr class="this-row">
                             <td>Tree Removal</td>
                             <td>2</td>
                             <td>1000.00</td>
                             <td>
-                                <button type="button" class="close float-none" id="delete-row">&times;</button>
+                                <button type="button" class="close float-none delete-row">&times;</button>
                             </td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>
@@ -74,6 +74,7 @@
 
         // ADD ITEM ROW
         $("#add-item").click(() => {
+
             // get input
             const itemName = $("#item-name").val().trim()
             const itemQuantity = parseInt($("#quantity").val().trim())
@@ -93,7 +94,8 @@
                 return
             }
             if (isNaN(itemCharge())) {
-                $("#validation").append("<p>Charge must be a number. Value will be rounded to two decimal points.</p>")
+                $("#validation").append(
+                    "<p>Charge must be a number. Value will be rounded to two decimal points.</p>")
                 return
             }
 
@@ -103,18 +105,21 @@
             const chargeTD = $("<td>").text(itemCharge())
             const removeBtn = $("<button>").attr({
                 "type": "button",
-                "class": "close float-none",
-                "id": "delete-row"
+                "class": "close float-none delete-row",
             }).html("&times;")
             const removeTD = $("<td>").append(removeBtn)
-            const itemTR = $("<tr>").attr("id", "this-row")
+            const itemTR = $("<tr>").addClass("this-row")
             $("#item-table").append(itemTR.append(nameTD, quantityTD, chargeTD, removeTD))
+
+            // clear input fields
+            $("#item-name").val("")
+            $("#quantity").val("")
+            $("#charge").val("")
         })
 
         // DELETE ITEM ROW
-        $("#delete-row").click( () => {
-            $("#this-row").remove()
+        $("table").on("click", ".delete-row", event => {
+            $(event.currentTarget).closest("tr").remove()
         })
-
     })
 </script>
