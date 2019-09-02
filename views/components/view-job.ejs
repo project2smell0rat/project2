@@ -31,6 +31,7 @@
                 </table>
             </div>
         </div>
+        <button type="button" class="btn btn-primary btn-block" id="save">Save</button>
     </div>
 </div>
 
@@ -121,5 +122,12 @@
         $("table").on("click", ".delete-row", event => {
             $(event.currentTarget).closest("tr").remove()
         })
+
+        // SAVE AND RETURN TO CUSTOMERS PAGE
+        $("#save").click(() => {
+            // go to URL from dropdown
+            location.href = "home"
+        })
+
     })
 </script>
