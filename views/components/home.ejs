@@ -11,21 +11,29 @@
         <!-- CUSTOMER CARD -->
         <div class="card mb-3">
             <div class="card-body">
-                <h4 class="card-title">Customer Name</h4>
+                <h4 class="card-title">Rat Smeller LLC</h4>
                 <div class="input-group mb-3">
                     <select class="custom-select" id="jobs">
-                        <option selected>Select a current job...</option>
+                        <option selected>Select a job...</option>
                         <option value="view-job.html">Job One</option>
-                        <option value="Job 2">Job Two</option>
-                        <option value="Job 3">Job Three</option>
                     </select>
                     <div class="input-group-append">
-                        <button class="btn btn-primary" type="button">Go to Job</button>
+                        <button class="btn btn-primary" type="button" id="view-job">View Job</button>
                     </div>
                 </div>
-                <a href="add-job" class="card-link">Add a New Job</a>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-lg-12">
+                            <label for="job-name">Add a New Job</label>
+                            <input type="text" class="form-control" id="job-name" placeholder="Job Name">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Add</button>
+                </form>
+                <!-- <a href="add-job" target="_blank" class="card-link">Add a New Job</a> -->
             </div>
         </div>
+
     </div>
 </div>
 
@@ -137,7 +145,34 @@
                     <input type="text" class="form-control" id="zip">
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary btn-block">Add</button>
+            <button type="submit" class="btn btn-primary btn-block" id="add-customer">Add</button>
         </form>
     </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    $(document).ready(() => {
+
+        $("#view-job").click(() => {
+            // go to URL from dropdown
+            location.href = "view-job"
+        })
+
+        // ADD CUSTOMER CARD
+        $("#add-customer").click(() => {
+
+            // get input
+
+            // validate input
+
+            // build and append customer card
+
+            // clear input fields
+        })
+
+        // DELETE CUSTOMER CARD
+    })
+</script>
