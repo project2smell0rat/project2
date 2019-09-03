@@ -1,20 +1,20 @@
-const express = require('express')
+const express = require("express");
 
-const router = express.Router()
+const router = express.Router();
 
 router
-  .get('/examples', (req, res) => {
-      res.send('OK examples')
+  .get("/examples", (req, res) => {
+    res.send("OK examples");
   })
-  .post('/examples', (req, res) => {
-    console.log(req.body)
+  .post("/examples", (req, res) => {
+    console.log(req.body);
 
-    res.send('Gotcha post!')
+    res.send("Gotcha post!");
   })
-  .delete('/examples/:id', (req, res) => {
-    console.log(req.params.id)
+  .delete("/examples/:id", (req, res) => {
+    console.log(req.params.id);
 
-    res.send('Gotcha delete!')
-  })
+    res.send("Gotcha delete!");
+  });
 
-module.exports = router
+module.exports = router;

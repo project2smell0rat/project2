@@ -1,27 +1,43 @@
-:root {
-  --font: rgba(0, 0, 0, 0.65);
-  --secondary-font: rgb(220, 124, 124);
-}
-
-html {
-  background-image: url(/img/background.png);
-  height: 100%;
+* {
+  display: block;
 }
 
 body {
-  background-color: rgba(210, 219, 226, 0.575);
-  color: var(--font);
-  min-height: 100%;
-  margin: 0;
+  background-color: blue;
 }
 
-h1 {
-  margin-top: 0;
+.container {
+  background-color: #f1f1f1;
+  padding: 20px;
 }
 
-.wrapper {
-  width: 50%;
-  margin: auto;
-  padding: 2rem;
-  text-align: center;
+#pswd_info {
+  display: none;
+  width: 400px;
+}
+
+input[type="text"] {
+  width: 500px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+#pswd_info h4 {
+  margin: 0 0 10px 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+.invalid {
+  padding-left: 22px;
+  line-height: 24px;
+  color: #ec3f41;
+}
+.valid {
+  padding-left: 22px;
+  line-height: 24px;
+  color: #3a7d34;
 }
