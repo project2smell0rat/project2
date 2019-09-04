@@ -1,0 +1,277 @@
+<!-- CURRENT CUSTOMERS DIV -->
+<div class="row">
+    <div class="column col-lg-8 mx-auto" id="current-customers">
+        <div class="row">
+            <div class="column col-lg-6 mb-3">
+                <h2>Current Customers</h2>
+                <a href="#add-customer-anchor">Add a New Customer</a>
+            </div>
+        </div>
+
+        <!-- CUSTOMER CARD -->
+        <div class="card mb-3">
+            <div class="card-body">
+                <h4 class="card-title">Rat Smeller LLC</h4>
+                <div class="input-group mb-3">
+                    <select class="custom-select jobs">
+                        <option value="placeholder">Job One</option>
+                    </select>
+                    <div class="input-group-append">
+                        <button class="btn btn-primary view-job" type="button">View Job</button>
+                    </div>
+                </div>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-lg-12">
+                            <label for="job-name">Add a New Job</label>
+                            <input type="text" class="form-control job-name" placeholder="Job Name">
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-block add-job">Add</button>
+                </form>
+                <!-- <a href="add-job" target="_blank" class="card-link">Add a New Job</a> -->
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<hr>
+
+<!-- ADD CUSTOMER FORM -->
+<div class="row">
+    <div class="column col-lg-8 mx-auto">
+        <h4 id="add-customer-anchor">Add a New Customer</h4>
+
+        <div id="validation"></div>
+
+        <form>
+            <div class="form-row">
+                <div class="form-group col-lg-12">
+                    <label for="customer-name">Customer Name</label>
+                    <input type="text" class="form-control" id="customer-name">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-lg-6">
+                    <label for="first-name">Contact First Name</label>
+                    <input type="text" class="form-control" id="first-name">
+                </div>
+                <div class="form-group col-lg-6">
+                    <label for="last-name">Contact Last Name</label>
+                    <input type="text" class="form-control" id="last-name">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-lg-6">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email">
+                </div>
+                <div class="form-group col-lg-6">
+                    <label for="phone">Phone</label>
+                    <input type="text" class="form-control" id="phone">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Street Address</label>
+                <input type="text" class="form-control" id="address">
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-lg-6">
+                    <label for="city">City</label>
+                    <input type="text" class="form-control" id="city">
+                </div>
+                <div class="form-group col-lg-4">
+                    <label for="state">State</label>
+                    <select class="form-control" id="state">
+                        <option selected>--</option>
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DE">Delaware</option>
+                        <option value="DC">District Of Columbia</option>
+                        <option value="FL">Florida</option>
+                        <option value="GA">Georgia</option>
+                        <option value="HI">Hawaii</option>
+                        <option value="ID">Idaho</option>
+                        <option value="IL">Illinois</option>
+                        <option value="IN">Indiana</option>
+                        <option value="IA">Iowa</option>
+                        <option value="KS">Kansas</option>
+                        <option value="KY">Kentucky</option>
+                        <option value="LA">Louisiana</option>
+                        <option value="ME">Maine</option>
+                        <option value="MD">Maryland</option>
+                        <option value="MA">Massachusetts</option>
+                        <option value="MI">Michigan</option>
+                        <option value="MN">Minnesota</option>
+                        <option value="MS">Mississippi</option>
+                        <option value="MO">Missouri</option>
+                        <option value="MT">Montana</option>
+                        <option value="NE">Nebraska</option>
+                        <option value="NV">Nevada</option>
+                        <option value="NH">New Hampshire</option>
+                        <option value="NJ">New Jersey</option>
+                        <option value="NM">New Mexico</option>
+                        <option value="NY">New York</option>
+                        <option value="NC">North Carolina</option>
+                        <option value="ND">North Dakota</option>
+                        <option value="OH">Ohio</option>
+                        <option value="OK">Oklahoma</option>
+                        <option value="OR">Oregon</option>
+                        <option value="PA">Pennsylvania</option>
+                        <option value="RI">Rhode Island</option>
+                        <option value="SC">South Carolina</option>
+                        <option value="SD">South Dakota</option>
+                        <option value="TN">Tennessee</option>
+                        <option value="TX">Texas</option>
+                        <option value="UT">Utah</option>
+                        <option value="VT">Vermont</option>
+                        <option value="VA">Virginia</option>
+                        <option value="WA">Washington</option>
+                        <option value="WV">West Virginia</option>
+                        <option value="WI">Wisconsin</option>
+                        <option value="WY">Wyoming</option>
+                    </select>
+                </div>
+                <div class="form-group col-lg-2">
+                    <label for="zip">Zip</label>
+                    <input type="text" class="form-control" id="zip">
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary btn-block add-customer">Add</button>
+        </form>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    $(document).ready(() => {
+
+        // ADD JOB TO DROPDOWN
+        $(".add-job").click(() => {
+            const jobName = $(".job-name").val().trim()
+            if(!jobName) {
+                return
+            } else {
+                const jobOption = $("<option>").attr({
+                    "value": "placeholder"
+                }).text(jobName)
+                $(".jobs").append(jobOption)
+                $(".job-name").val("")
+            }
+        })
+
+        // VIEW JOB FROM DROPDOWN
+        $(".view-job").click(() => {
+            // update href to be job-specific from db
+            location.href = "view-job"
+        })
+
+        // ADD CUSTOMER CARD
+        $(".add-customer").click(() => {
+
+            // get input
+            const customerName = $("#customer-name").val().trim()
+            const firstName = $("#first-name").val().trim()
+            const lastName = $("#last-name").val().trim()
+            const email = $("#email").val().trim()
+            const phone = $("#phone").val().trim()
+            const address = $("#address").val().trim()
+            const city = $("#city").val().trim()
+            const state = $("#state").val().trim()
+            const zip = $("#zip").val().trim()
+
+            // validate input
+            $("#validation").empty()
+            if(!customerName) {
+                $("#validation").append("<p>Please enter a Customer Name.</p>")
+                return
+            }
+            if(!firstName) {
+                $("#validation").append("<p>Please enter a Contact First Name.</p>")
+                return
+            }
+            if(!lastName) {
+                $("#validation").append("<p>Please enter a Contact Last Name.</p>")
+                return
+            }
+            if(!email) {
+                $("#validation").append("<p>Please enter an Email.</p>")
+                return
+            }
+            if(!phone) {
+                $("#validation").append("<p>Please enter a Phone Number.</p>")
+                return
+            }
+            if(!address) {
+                $("#validation").append("<p>Please enter a Street Address.</p>")
+                return
+            }
+            if(!city) {
+                $("#validation").append("<p>Please enter a City.</p>")
+                return
+            }
+            if(!state) {
+                $("#validation").append("<p>Please choose a State.</p>")
+                return
+            }
+            if(!zip) {
+                $("#validation").append("<p>Please enter a Zip Code.</p>")
+                return
+            }
+
+            // build and append customer card
+            const jobName = $(".job-name").val().trim()
+            const addJobButton = $("<button>").attr({
+                "type": "button",
+                "class": "btn btn-primary btn-block add-job",
+            }).text("Add")
+            const formInput = $("<input>").attr({
+                "type": "text",
+                "class": "form-control job-name",
+                "placeholder": "Job Name"
+            })
+            const formLabel = $("<label>").attr("for", "job-name").text("Add a New Job")
+            const formGroup = $("<div>").addClass("form-group col-lg-12").append(formLabel, formInput)
+            const formRow = $("<div>").addClass("form-row").append(formGroup)
+            const jobForm = $("<form>").append(formRow, addJobButton)
+            const viewJobButton = $("<div>").addClass("input-group-append").append($("<button>").attr({
+                "class": "btn btn-primary view-job",
+                "type": "button",
+            }).text("View Job"))
+            const option = $("<option>").attr("value", "placehodler").text(jobName)
+            const dropdown = $("<select>").attr({
+                "class": "custom-select jobs",
+            }).append(option)
+            const dropdownDiv = $("<div>").addClass("input-group mb-3").append(dropdown, viewJobButton)
+            const cardTitle = $("<h4>").addClass("card-title").text(customerName)
+            const cardBody = $("<div>").addClass("card-body").append(cardTitle, dropdownDiv, jobForm)
+            const custCard = $("<div>").addClass("card mb-3").append(cardBody)
+            $("#current-customers").append(custCard)
+
+            // clear input fields
+            $("#customer-name").val("")
+            $("#first-name").val("")
+            $("#last-name").val("")
+            $("#email").val("")
+            $("#phone").val("")
+            $("#address").val("")
+            $("#city").val("")
+            $("#state").val("")
+            $("#zip").val("")
+        })
+
+        // DELETE CUSTOMER CARD
+    })
+</script>
