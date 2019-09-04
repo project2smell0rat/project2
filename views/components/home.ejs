@@ -173,8 +173,10 @@
         })
 
         // VIEW JOB FROM DROPDOWN
-        $(".view-job").click(() => {
-            // update href to be job-specific from db
+        // this works, but I'm not sure $(document) is the best selector...
+        $(document).on("click", ".view-job", () => {
+            // needs to GET data from db based on Job Name from dropdown
+            // to populate view-job page with job-specific data
             location.href = "view-job"
         })
 
@@ -250,10 +252,8 @@
                 "class": "btn btn-primary view-job",
                 "type": "button",
             }).text("View Job"))
-            const option = $("<option>").attr("value", "placehodler").text(jobName)
-            const dropdown = $("<select>").attr({
-                "class": "custom-select jobs",
-            }).append(option)
+            const option = $("<option>").attr("value", "placeholder").text(jobName)
+            const dropdown = $("<select>").addClass("custom-select jobs").append(option)
             const dropdownDiv = $("<div>").addClass("input-group mb-3").append(dropdown, viewJobButton)
             const cardTitle = $("<h4>").addClass("card-title").text(customerName)
             const cardBody = $("<div>").addClass("card-body").append(cardTitle, dropdownDiv, jobForm)
@@ -273,5 +273,6 @@
         })
 
         // DELETE CUSTOMER CARD
+        // ... coming soon to a page near you
     })
 </script>
