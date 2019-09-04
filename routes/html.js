@@ -3,17 +3,10 @@ const express = require("express");
 const router = express.Router();
 
 router
-  // DUSTIN'S TEST
-  // .get('/', (_, res) => {
-  //   res.render('index', {
-  //     title: 'My Cool App',
-  //     user: 'Nerd'
-  //   })
-  // })
-
   // LOG IN
   .get("/", (_, res) => {
     res.render("index", {
+      styling: "/css/login.css",
       title: "Log In",
       body: "components/login"
     });
@@ -22,6 +15,7 @@ router
   // HOME
   .get("/home", (_, res) => {
     res.render("index", {
+      styling: "/css/main.css",
       title: "Home",
       body: "components/home"
     });
@@ -30,17 +24,10 @@ router
   // VIEW JOB
   .get("/view-job", (_, res) => {
     res.render("index", {
+      styling: "/css/main.css",
       title: "View Job",
       body: "components/view-job"
     });
   })
-
-  // ADD JOB
-  .get("/add-job", (_, res) => {
-    res.render("index", {
-      title: "Add a New Job",
-      body: "components/add-job"
-    });
-  });
 
 module.exports = router;
