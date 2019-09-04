@@ -1,34 +1,55 @@
 // const Sequelize = require('sequelize')
 // const db = require('../config/database')
 
-// const Gig = db.define('gig', {
-//   customer_name: {
+// const Recipient = db.define('recipient', {
+//   recipient_id: {
 //     type: Sequelize.STRING
 //   },
-//   contact_first_name: {
+
+//   company_name: {
 //     type: Sequelize.STRING
 //   },
-//   contact_last_name: {
+
+//   first_name: {
 //     type: Sequelize.STRING
 //   },
-//   contact_email: {
+
+//   last_name: {
 //     type: Sequelize.STRING
 //   },
-//   contact_phone: {
+
+//   street_number: {
 //     type: Sequelize.STRING
 //   },
-//   street_address: {
+
+//   street_name: {
 //     type: Sequelize.STRING
 //   },
+
+//   zip_code: {
+//     type: Sequelize.STRING
+//   },
+
 //   city: {
 //     type: Sequelize.STRING
 //   },
-//   state: {
+
+//   country: {
 //     type: Sequelize.STRING
 //   },
-//   zip: {
+
+//   phone: {
+//     type: Sequelize.STRING
+//   },
+
+//   mail: {
+//     type: Sequelize.STRING
+//   },
+
+//   job_id: {
 //     type: Sequelize.STRING
 //   }
+
 // })
 
-// module.exports = Gig
+// module.exports = Recipient
