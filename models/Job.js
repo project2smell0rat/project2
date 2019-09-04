@@ -1,3 +1,5 @@
+// NOTE: table corresponds to JS file name in the singular. Table name is plural
+
 // const Sequelize = require('sequelize')
 // const db = require('../config/database')
 
