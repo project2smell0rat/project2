@@ -111,28 +111,3 @@ foreign key (user_id) references users(user_id)
 
 
 --------------------------------------------------------------------------------------------------------
-create table people (
-	fullName varchar(50) NOT NULL,
-	hasPet boolean NOT NULL,
-	petName varchar(25),
-    petAge INT(10)
-);
-
--- Drops the favorite_db if it exists currently --
-DROP DATABASE IF EXISTS favorite_db;
--- Creates the "favorite_db" database --
-
-
-
-use favorite_db;
-CREATE TABLE favorite_movies (
-  id int(10) auto_increment NOT NULL primary key,
-  movie varchar(50) not null,
-  five_times boolean not  null,
-  score integer(50)
-  
-);
-
--- Make it so all of the following code will affect favorite_db --
-
-insert into

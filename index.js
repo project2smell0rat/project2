@@ -1,19 +1,19 @@
 require('dotenv').config()
-const path = require('path')
-const express = require('express')
-const db = require('./db')
-const htmlRoutes = require('./routes/html')
-const apiRoutes = require('./routes/api')
+import { join } from 'path';
+import express, { urlencoded, json, static } from 'express';
+import db from './db';
+import htmlRoutes from './routes/html';
+import apiRoutes from './routes/api';
 
 const app = express()
 const PORT = process.env.PORT || 3030
 
 app
-  .set('views', path.join(__dirname, 'views'))
+  .set('views', join(__dirname, 'views'))
   .set('view engine', 'ejs')
-  .use(express.urlencoded({ extended: false }))
-  .use(express.json())
-  .use(express.static(path.join(__dirname, 'public')))
+  .use(urlencoded({ extended: false }))
+  .use(json())
+  .use(static(join(__dirname, 'public')))
   .use(db)
   .use(htmlRoutes)
   .use(apiRoutes)
