@@ -1,77 +1,56 @@
-function groupBy (fn, arr) {
-  return arr.reduce((acc, v) => {
-    const k = fn(v)
+$(document).ready(function () {
+  $('#password')
+    .keyup(function () {
+      var pswd = $(this).val()
 
-    if (Object.prototype.hasOwnProperty.call(acc, k)) {
-      acc[k].push(v)
-    } else {
-      acc[k] = [v]
-    }
+      if (pswd.length < 8) {
+        $('#length')
+          .removeClass('valid')
+          .addClass('invalid')
+      } else {
+        $('#length')
+          .removeClass('invalid')
+          .addClass('valid')
+      }
 
-    return acc
-  }, {})
-}
+      if (pswd.match(/[a-z]/)) {
+        $('#letter')
+          .removeClass('invalid')
+          .addClass('valid')
+      } else {
+        $('#letter')
+          .removeClass('valid')
+          .addClass('invalid')
+      }
 
-/**
- * Sorts an array based on the functions passed it, will go through the functions in order and use ties to the next function in order to break ties. (Does not mutate original array)
- * @param {Array} fns An array of functions to sort with
- * @param {Array} arr The array to sort
- * @return {Array} returns a brand new sorted array
- */
-function sortWith (fns, arr) {
-  return [...arr].sort((a, b) =>
-    fns.reduce((acc, f) => acc === 0 ? f(a, b) : acc, 0))
-}
+      // validate capital letter
+      if (pswd.match(/[A-Z]/)) {
+        $('#capital')
+          .removeClass('invalid')
+          .addClass('valid')
+      } else {
+        $('#capital')
+          .removeClass('valid')
+          .addClass('invalid')
+      }
 
-/**
- * Can be used with sort to ascend an array based on the function passed in
- * @param {Function} fn The function to apply to the values before comparing
- */
-function ascendBy (fn) {
-  return function (a, b) {
-    const A = fn(a)
-    const B = fn(b)
+      // validate number
+      if (pswd.match(/\d/)) {
+        $('#number')
+          .removeClass('invalid')
+          .addClass('valid')
+      } else {
+        $('#number')
+          .removeClass('valid')
+          .addClass('invalid')
+      }
 
-    if (A < B) {
-      return -1
-    }
-
-    if (A > B) {
-      return 1
-    }
-
-    return 0
-  }
-}
-
-/**
- * Can be used with sort to descend an array based on the function passed in
- * @param {Function} fn The function to apply to the values before comparing
- */
-function descendBy (fn) {
-  return function (a, b) {
-    const A = fn(a)
-    const B = fn(b)
-
-    if (A > B) {
-      return -1
-    }
-
-    if (A < B) {
-      return 1
-    }
-
-    return 0
-  }
-}
-
-const data = [{ name: 'alice', age: 40 }, { name: 'bob', age: 30 }, { name: 'clara', age: 40 }]
-
-console.log(
-  sortWith([
-    descendBy(x => x.age),
-    ascendBy(x => x.name)
-  ], data)
-)
-
-console.log(groupBy(x => x.age, data))
+    // keyup code here
+    })
+    .focus(function () {
+      $('#pswd_info').show()
+    })
+    .blur(function () {
+      $('#pswd_info').hide()
+    })
+})
