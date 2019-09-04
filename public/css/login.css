@@ -1,0 +1,40 @@
+body {
+  background-color: blue;
+}
+
+.container {
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+#pswd_info {
+  display: none;
+  width: 400px;
+}
+
+input[type="text"] {
+  width: 500px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+#pswd_info h4 {
+  margin: 0 0 10px 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+.invalid {
+  padding-left: 22px;
+  line-height: 24px;
+  color: #ec3f41;
+}
+.valid {
+  padding-left: 22px;
+  line-height: 24px;
+  color: #3a7d34;
+}
+
