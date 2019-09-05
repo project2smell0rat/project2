@@ -10,10 +10,10 @@ const Task = require('../models/Task')
 // HOME
 
 router.get('/home', (_, res) =>
-  Member.findAll()
-    .then(members => {
+  Job.findAll()
+    .then(Jobs => {
       res.render('home', {
-        members,
+        Jobs,
         styling: '/css/login.css',
         title: 'home',
         body: 'layouts/home'
@@ -21,8 +21,8 @@ router.get('/home', (_, res) =>
     })
     .catch(err => console.log(err)))
 
-router.post('/viewjob', (req, res) => {
-  const { task_name, task_description, task_rate, job_id } = req.body
+router.post('/home', (req, res) => {
+  const { Job_name, user_id, } = req.body
   let errors = []
         
   // form field validation
