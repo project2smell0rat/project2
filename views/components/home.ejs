@@ -11,23 +11,25 @@
         <!-- CUSTOMER CARD -->
         <div class="card mb-3">
             <div class="card-body">
-                <h4 class="card-title">Rat Smeller LLC</h4>
+                <h4 class="card-title">Case Western Reserve University</h4>
                 <div class="input-group mb-3">
-                    <select class="custom-select jobs">
-                        <option value="Job One">Job One</option>
+                    <select class="custom-select" id="jobs">
+                        <option value="Job One">Microsite</option>
+                        <option value="Job One">Mobile App</option>
+                        <option value="Job One">Site Add On</option>
                     </select>
                     <div class="input-group-append">
-                        <button class="btn btn-primary view-job" type="button">View Job</button>
+                        <button class="btn btn-primary" id="view-job" type="button">View Job</button>
                     </div>
                 </div>
                 <form>
                     <div class="form-row">
                         <div class="form-group col-lg-12">
                             <label for="job-name">Add a New Job</label>
-                            <input type="text" class="form-control job-name" placeholder="Job Name">
+                            <input type="text" class="form-control" id="job-name" placeholder="Job Name">
                         </div>
                     </div>
-                    <button type="button" class="btn btn-primary btn-block add-job">Add</button>
+                    <button type="button" class="btn btn-primary btn-block" id="add-job">Add</button>
                 </form>
             </div>
         </div>
@@ -159,22 +161,22 @@
         // ADD JOB TO DROPDOWN
         // this should use id's instead of classes
         // e.g.: #add-job-1, #job-name-1 and #jobs-1
-        $(".add-job").click(() => {
-            const jobName = $(".job-name").val().trim()
+        $("#add-job").click(() => {
+            const jobName = $("#job-name").val().trim()
             if(!jobName) {
                 return
             } else {
                 const jobOption = $("<option>").attr({
                     "value": jobName
                 }).text(jobName)
-                $(".jobs").append(jobOption)
-                $(".job-name").val("")
+                $("#jobs").append(jobOption)
+                $("#job-name").val("")
             }
         })
 
         // VIEW JOB FROM DROPDOWN
         // this works, but I'm not sure $(document) is the best selector...
-        $(document).on("click", ".view-job", () => {
+        $(document).on("click", "#view-job", () => {
             // needs to GET data from db based on Job Name from dropdown to populate view-job page with job-specific data
             location.href = "view-job"
         })
