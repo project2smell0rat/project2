@@ -1,35 +1,30 @@
-# Foundation App
+# PDF Invoicer
 
-This is a basic foundation level application that will allow you to hit the ground running.
+PDF Invoicer is designed to help freelance professionals organize and expedite their billing process by generating simple itemized invoice PDFs. Users can add and save three types of data: Customers, Jobs and Items. Customer profiles include all a client's necessary billing information. Within a Customer profile users can create Jobs which represent specific tasks or projects for a Customer. And within Jobs users can add individual line items with quantities and charges.   
 
-This contains pretty all of the ground level tooling you'll need, such as express, mysql, tests, some views, and routing. You just have to use it!
-
-## How To
-
-- `clone` or `fork` this repo
-- `cd` into the folder on your desktop
-- run `npm i`
-- Good luck
-
-## Technology
+## Technologies
 
 - Express
-- MySQL
-- EJS (Templating)
-- Tape (Testing)
-  - Test tooling is included but you'll have to setup your own tests if you want to use them
-- StandardJs (Linting)
+- MySQL & JawsDB
+- EJS
+- StandardJs
 - Nodemon
-- dotenv (Environment variables)
+- dotenv
+- Bootstrap
+- jQuery
 
-## Commands
+## Still in Development
 
-- `npm run dev` runs the dev server using nodemon
-- `npm start` runs the main node server
-- `npm run lint` runs the linter
-- `npm run fix` runs the linter and fixes auto fixable problems
-- `npm test` runs the test suite if tests exist
+- Secure log in
+- PDF generation
+- Ability to add logos to invoices
+- Sorting functionality for Customers, Jobs and Items
+- Account management page
 
-You should be able to get started pretty quick from this point.
+## Deployed on Heroku
 
-Good luck, and have fun!
+URL...
+
+## Creators
+
+@mfxod @oinksu @Devanirvin
