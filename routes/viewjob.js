@@ -7,7 +7,7 @@ const Task = require('../models/Task')
 
 // VIEW JOB
 router.get('/viewjob', (_, res) =>
-  Job.findAll()
+  Task.findAll()
     .then(members => {
       res.render('viewjob', {
         members,
@@ -19,7 +19,7 @@ router.get('/viewjob', (_, res) =>
     .catch(err => console.log(err)))
 
 router.post('/viewjob', (req, res) => {
-  let { title, technologies, budget, description, contact_email } = req.body
+  const { task_name, task_description, task_rate, job_id } = req.body
   let errors = []
     
   // form field validation
@@ -44,11 +44,10 @@ router.post('/viewjob', (req, res) => {
   if (errors.length > 0) {
     res.render('add', {
       errors,
-      title,
-      technologies,
-      budget,
-      description,
-      contact_email
+      task_name,
+      task_description,
+      task_rate,
+      job_id
     })
     // adds dollar sign to budget which is not included in the DB
   } else {
@@ -61,12 +60,11 @@ router.post('/viewjob', (req, res) => {
     technologies = technologies.toLowerCase().replace(/, /g, ',')
     
     // Insert dat into database table
-    Gig.create({
-      title,
-      technologies,
-      description,
-      budget,
-      contact_email
+    Task.create({
+      task_name,
+      task_description,
+      task_rate,
+      job_id
     })
     // redirects to gigs or catches the error
       .then(gig => res.redirect('/gigs'))
@@ -78,10 +76,9 @@ router.post('/viewjob', (req, res) => {
 router.get('/search', (req, res) => {
   let { term } = req.query
     
-  Gig.findAll({ where: { technologies: { [Op.like]: '%' + term + '%' } } })
-    .then(gigs => res.render('gigs', { gigs }))
+  Job.findAll({ where: { Job_name: { [Op.like]: '%' + term + '%' } } })
+    .then(jobs => res.render('viewjob', { jobs }))
     .catch()
 })
-
 
 module.exports = router
