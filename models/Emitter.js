@@ -46,4 +46,4 @@
 
 // })
 
-// module.exports = Recipient
+// module.exports = Emitter
