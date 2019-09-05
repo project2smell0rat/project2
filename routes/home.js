@@ -9,10 +9,22 @@ const Task = require('../models/Task')
 
 // HOME
 router.get('/home', (req, res) => {
-  res.render('index', {
+  res.render('home', {
     title: 'Home',
     body: 'components/home'
   })
 })
+
+router.get('/home', (_, res) =>
+  Member.findAll()
+    .then(members => {
+      res.render('home', {
+        members,
+        styling: '/css/login.css',
+        title: 'home',
+        body: 'layouts/home'
+      })
+    })
+    .catch(err => console.log(err)))
 
 module.exports = router

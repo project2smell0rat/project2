@@ -7,12 +7,18 @@ const Emitter = require('../models/Emitter')
 const Job = require('../models/Job')
 const Task = require('../models/Task')
 
-// ADD JOB
-router.get('/addjob', (req, res) => {
-  res.render('index', {
-    title: 'Add a New Job',
-    body: 'components/add-job'
-  })
-})
+// ADD JOb
+
+router.get('/addjob', (_, res) =>
+  Member.findAll()
+    .then(members => {
+      res.render('addjob', {
+        members,
+        styling: '/css/login.css',
+        title: 'Add Job',
+        body: 'layouts/addjob'
+      })
+    })
+    .catch(err => console.log(err)))
 
 module.exports = router
