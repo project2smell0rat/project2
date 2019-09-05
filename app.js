@@ -6,6 +6,7 @@ const path = require('path')
 
 const db = require('./config/database')
 
+// in routes folder
 const htmlRoutes = require('./routes/html')
 const apiRoutes = require('./routes/api')
 
@@ -16,11 +17,13 @@ db.authenticate()
   .catch(err => console.log('Error: ' + err))
 
 const app = express()
+
 const PORT = process.env.PORT || 3030
 
 app
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
+  .use(bodyParser.urlencoded({ extended: false }))
   .use(express.urlencoded({ extended: false }))
   .use(express.json())
   .use(express.static(path.join(__dirname, 'public')))

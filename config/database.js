@@ -4,7 +4,7 @@
 const Sequelize = require('sequelize');
 
 // Option 1: Passing parameters separately. codegi refers to the database I'm using root it is db username password its password copied code declares constant as sequelize I changed it to db to follow example the constant from the original code was change to module.export to export it to other files
-module.exports = new Sequelize('codegig', 'root', 'password', {
+module.exports = new Sequelize('rattsmeller', 'root', 'password', {
   host: 'localhost',
   dialect: 'mysql',
 

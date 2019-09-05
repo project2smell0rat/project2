@@ -1,5 +1,5 @@
 --this creates database 
-CREATE DATABASE invoice;
+CREATE DATABASE ratsmeller;
 
 
 --use text below to find table you wont be able to use that until tables and database are created
@@ -8,10 +8,10 @@ CREATE DATABASE invoice;
 -- use invoice;
 
 --This creates the table named users
-create table users (
+create table members (
 	user_id int auto_increment NOT NULL primary key,
     user_name varchar(30),
-    passwords varchar(30)
+    password varchar(30)
 );
 
 --This inserts data into users uncoment if you need it
@@ -22,7 +22,7 @@ create table users (
 -- 		('jerkyjer1', 'password456');
 
 -- Creates jobs table
-use invoice;
+use ratsmeller;
 create table jobs (
 	job_id int auto_increment NOT NULL primary key,
     job_name varchar(30),
@@ -36,7 +36,7 @@ create table jobs (
 -- 		('lamewebsite', '2');
 
 -- Creates jobs tasks
-use invoice;
+use ratsmeller;
 create table tasks (
 	task_id int auto_increment NOT NULL primary key,
     task_name varchar(30),
@@ -53,7 +53,7 @@ create table tasks (
 
 
 -- Creates jobs materials
-use invoice;
+use ratsmeller;
 create table materials (
 	material_id int auto_increment NOT NULL primary key,
     material_name varchar(30),
@@ -67,8 +67,8 @@ create table materials (
 --VALUES  ('stock photo', 15.00,2);
 
 -- Creates jobs recipient table
-use invoice;
-create table recipient (
+use ratsmeller;
+create table recipients (
 recipient_id int auto_increment NOT NULL primary key,
 company_name varchar(30),
 first_name varchar(30),
@@ -90,8 +90,8 @@ foreign key (job_id) references jobs(job_id)
 
 
 -- Creates jobs invoices table
-use invoice;
-create table emitter (
+use ratsmeller;
+create table emitters (
 emitter_id int auto_increment NOT NULL primary key,
 name varchar(60),
 street_number int(10),
