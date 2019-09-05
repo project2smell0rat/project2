@@ -14,7 +14,7 @@
                 <h4 class="card-title">Rat Smeller LLC</h4>
                 <div class="input-group mb-3">
                     <select class="custom-select jobs">
-                        <option value="placeholder">Job One</option>
+                        <option value="Job One">Job One</option>
                     </select>
                     <div class="input-group-append">
                         <button class="btn btn-primary view-job" type="button">View Job</button>
@@ -29,10 +29,8 @@
                     </div>
                     <button type="button" class="btn btn-primary btn-block add-job">Add</button>
                 </form>
-                <!-- <a href="add-job" target="_blank" class="card-link">Add a New Job</a> -->
             </div>
         </div>
-
     </div>
 </div>
 
@@ -88,7 +86,7 @@
                 <div class="form-group col-lg-4">
                     <label for="state">State</label>
                     <select class="form-control" id="state">
-                        <option selected>--</option>
+                        <option value="" selected>--</option>
                         <option value="AL">Alabama</option>
                         <option value="AK">Alaska</option>
                         <option value="AZ">Arizona</option>
@@ -159,13 +157,15 @@
     $(document).ready(() => {
 
         // ADD JOB TO DROPDOWN
+        // this should use id's instead of classes
+        // e.g.: #add-job-1, #job-name-1 and #jobs-1
         $(".add-job").click(() => {
             const jobName = $(".job-name").val().trim()
             if(!jobName) {
                 return
             } else {
                 const jobOption = $("<option>").attr({
-                    "value": "placeholder"
+                    "value": jobName
                 }).text(jobName)
                 $(".jobs").append(jobOption)
                 $(".job-name").val("")
@@ -175,8 +175,7 @@
         // VIEW JOB FROM DROPDOWN
         // this works, but I'm not sure $(document) is the best selector...
         $(document).on("click", ".view-job", () => {
-            // needs to GET data from db based on Job Name from dropdown
-            // to populate view-job page with job-specific data
+            // needs to GET data from db based on Job Name from dropdown to populate view-job page with job-specific data
             location.href = "view-job"
         })
 
