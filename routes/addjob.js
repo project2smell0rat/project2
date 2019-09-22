@@ -7,15 +7,16 @@ const Emitter = require('../models/Emitter')
 const Job = require('../models/Job')
 const Task = require('../models/Task')
 
-// LOG IN
-router.get('/', (_, res) =>
+// ADD JOb
+
+router.get('/addjob', (_, res) =>
   Member.findAll()
     .then(members => {
-      res.render('index', {
+      res.render('addjob', {
         members,
         styling: '/css/login.css',
-        title: 'index',
-        body: 'layouts/index'
+        title: 'Add Job',
+        body: 'layouts/addjob'
       })
     })
     .catch(err => console.log(err)))
